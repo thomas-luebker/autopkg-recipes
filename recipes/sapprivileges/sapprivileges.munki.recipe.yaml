@@ -1,0 +1,32 @@
+Description: "Imports the latest SAP Privileges installer package into Munki."
+Identifier: "com.github.thomas-luebker.munki.sap-privileges"
+ParentRecipe: "com.github.thomas-luebker.download.sap-privileges"
+
+Input:
+  NAME: "SAPPrivileges"
+  DISPLAYNAME: "Privileges"
+  MUNKI_CATEGORY: "Utilities"
+  MUNKI_DEVELOPER: "SAP"
+  MUNKI_REPO_SUBDIR: "apps/Privileges"
+  DESCRIPTION: "Temporary admin rights management for macOS."
+
+  pkginfo:
+    name: "%NAME%"
+    display_name: "%DISPLAYNAME%"
+    description: "%DESCRIPTION%"
+    category: "%MUNKI_CATEGORY%"
+    developer: "%MUNKI_DEVELOPER%"
+    catalogs:
+      - "testing"
+    unattended_install: true
+
+Process:
+  - Processor: "MunkiPkginfoMerger"
+    Arguments:
+      additional_pkginfo:
+        version: "%version%"
+
+  - Processor: "MunkiImporter"
+    Arguments:
+      pkg_path: "%pathname%"
+      repo_subdirectory: "%MUNKI_REPO_SUBDIR%"

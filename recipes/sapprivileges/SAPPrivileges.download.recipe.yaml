@@ -1,0 +1,19 @@
+Description: "Downloads the latest SAP Privileges installer package from GitHub Releases."
+Identifier: "com.github.thomas-luebker.download.sap-privileges"
+
+Input:
+  NAME: "SAPPrivileges"
+  GITHUB_REPO: "sap/macOS-enterprise-privileges"
+  # Default: match the regular pkg. If you want the noLC variant, override this regex.
+  ASSET_REGEX: "^Privileges_.*\\.pkg$"
+
+Process:
+  - Processor: "GitHubReleasesInfoProvider"
+    Arguments:
+      github_repo: "%GITHUB_REPO%"
+      asset_regex: "%ASSET_REGEX%"
+
+  - Processor: "URLDownloader"
+    Arguments:
+      url: "%url%"
+      filename: "Privileges_%version%.pkg"
