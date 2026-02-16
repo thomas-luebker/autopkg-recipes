@@ -3,8 +3,7 @@ Identifier: "com.github.thomas-luebker.download.sapprivileges"
 
 Input:
   NAME: "SAPPrivileges"
-  GITHUB_REPO: "sap/macOS-enterprise-privileges"
-  # Default: match the regular pkg. If you want the noLC variant, override this regex.
+  GITHUB_REPO: "SAP/macOS-enterprise-privileges"
   ASSET_REGEX: "^Privileges_.*\\.pkg$"
 
 Process:
