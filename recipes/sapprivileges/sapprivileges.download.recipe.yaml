@@ -1,18 +1,50 @@
-Description: "Downloads the latest SAP Privileges installer package from GitHub Releases."
-Identifier: "com.github.thomas-luebker.download.sapprivileges"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Downloads the latest SAP Privileges installer package from GitHub Releases.</string>
 
-Input:
-  NAME: "SAPPrivileges"
-  GITHUB_REPO: "SAP/macOS-enterprise-privileges"
-  ASSET_REGEX: "^Privileges_.*\\.pkg$"
+  <key>Identifier</key>
+  <string>com.github.thomas-luebker.download.sapprivileges</string>
 
-Process:
-  - Processor: "GitHubReleasesInfoProvider"
-    Arguments:
-      github_repo: "%GITHUB_REPO%"
-      asset_regex: "%ASSET_REGEX%"
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>SAPPrivileges</string>
 
-  - Processor: "URLDownloader"
-    Arguments:
-      url: "%url%"
-      filename: "Privileges_%version%.pkg"
+    <key>GITHUB_REPO</key>
+    <string>SAP/macOS-enterprise-privileges</string>
+
+    <key>ASSET_REGEX</key>
+    <string>^Privileges_.*\.pkg$</string>
+  </dict>
+
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>GitHubReleasesInfoProvider</string>
+      <key>Arguments</key>
+      <dict>
+        <key>github_repo</key>
+        <string>%GITHUB_REPO%</string>
+        <key>asset_regex</key>
+        <string>%ASSET_REGEX%</string>
+      </dict>
+    </dict>
+
+    <dict>
+      <key>Processor</key>
+      <string>URLDownloader</string>
+      <key>Arguments</key>
+      <dict>
+        <key>url</key>
+        <string>%url%</string>
+        <key>filename</key>
+        <string>Privileges_%version%.pkg</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>

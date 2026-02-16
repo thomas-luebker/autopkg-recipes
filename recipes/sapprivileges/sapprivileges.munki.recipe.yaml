@@ -1,27 +1,70 @@
-Description: "Imports the latest SAP Privileges installer package into Munki."
-Identifier: "com.github.thomas-luebker.munki.sapprivileges"
-ParentRecipe: "com.github.thomas-luebker.download.sapprivileges"
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Description</key>
+  <string>Imports the latest SAP Privileges installer package into Munki.</string>
 
-Input:
-  NAME: "SAPPrivileges"
-  DISPLAYNAME: "Privileges"
-  MUNKI_CATEGORY: "Utilities"
-  MUNKI_DEVELOPER: "SAP"
-  MUNKI_REPO_SUBDIR: "apps/Privileges"
-  DESCRIPTION: "Temporary admin rights management for macOS."
+  <key>Identifier</key>
+  <string>com.github.thomas-luebker.munki.sapprivileges</string>
 
-  pkginfo:
-    name: "%NAME%"
-    display_name: "%DISPLAYNAME%"
-    description: "%DESCRIPTION%"
-    category: "%MUNKI_CATEGORY%"
-    developer: "%MUNKI_DEVELOPER%"
-    catalogs:
-      - "testing"
-    unattended_install: true
+  <key>ParentRecipe</key>
+  <string>com.github.thomas-luebker.download.sapprivileges</string>
 
-Process:
-  - Processor: "MunkiImporter"
-    Arguments:
-      pkg_path: "%pathname%"
-      repo_subdirectory: "%MUNKI_REPO_SUBDIR%"
+  <key>Input</key>
+  <dict>
+    <key>NAME</key>
+    <string>SAPPrivileges</string>
+
+    <key>DISPLAYNAME</key>
+    <string>Privileges</string>
+
+    <key>MUNKI_CATEGORY</key>
+    <string>Utilities</string>
+
+    <key>MUNKI_DEVELOPER</key>
+    <string>SAP</string>
+
+    <key>MUNKI_REPO_SUBDIR</key>
+    <string>apps/Privileges</string>
+
+    <key>DESCRIPTION</key>
+    <string>Temporary admin rights management for macOS.</string>
+
+    <key>pkginfo</key>
+    <dict>
+      <key>name</key>
+      <string>%NAME%</string>
+      <key>display_name</key>
+      <string>%DISPLAYNAME%</string>
+      <key>description</key>
+      <string>%DESCRIPTION%</string>
+      <key>category</key>
+      <string>%MUNKI_CATEGORY%</string>
+      <key>developer</key>
+      <string>%MUNKI_DEVELOPER%</string>
+      <key>catalogs</key>
+      <array>
+        <string>testing</string>
+      </array>
+      <key>unattended_install</key>
+      <true/>
+    </dict>
+  </dict>
+
+  <key>Process</key>
+  <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiImporter</string>
+      <key>Arguments</key>
+      <dict>
+        <key>pkg_path</key>
+        <string>%pathname%</string>
+        <key>repo_subdirectory</key>
+        <string>%MUNKI_REPO_SUBDIR%</string>
+      </dict>
+    </dict>
+  </array>
+</dict>
+</plist>
