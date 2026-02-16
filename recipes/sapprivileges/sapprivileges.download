@@ -1,5 +1,5 @@
 Description: "Downloads the latest SAP Privileges installer package from GitHub Releases."
-Identifier: "com.github.thomas-luebker.download.sap-privileges"
+Identifier: "com.github.thomas-luebker.download.sapprivileges"
 
 Input:
   NAME: "SAPPrivileges"
