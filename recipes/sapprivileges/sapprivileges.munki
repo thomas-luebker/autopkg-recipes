@@ -1,6 +1,6 @@
 Description: "Imports the latest SAP Privileges installer package into Munki."
-Identifier: "com.github.thomas-luebker.munki.sap-privileges"
-ParentRecipe: "com.github.thomas-luebker.download.sap-privileges"
+Identifier: "com.github.thomas-luebker.munki.sapprivileges"
+ParentRecipe: "com.github.thomas-luebker.download.sapprivileges"
 
 Input:
   NAME: "SAPPrivileges"
