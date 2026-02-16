@@ -15,19 +15,14 @@
   <dict>
     <key>NAME</key>
     <string>SAPPrivileges</string>
-
     <key>DISPLAYNAME</key>
     <string>Privileges</string>
-
     <key>MUNKI_CATEGORY</key>
     <string>Utilities</string>
-
     <key>MUNKI_DEVELOPER</key>
     <string>SAP</string>
-
     <key>MUNKI_REPO_SUBDIR</key>
     <string>apps/Privileges</string>
-
     <key>DESCRIPTION</key>
     <string>Temporary admin rights management for macOS.</string>
 
@@ -54,6 +49,19 @@
 
   <key>Process</key>
   <array>
+    <dict>
+      <key>Processor</key>
+      <string>MunkiPkginfoMerger</string>
+      <key>Arguments</key>
+      <dict>
+        <key>additional_pkginfo</key>
+        <dict>
+          <key>version</key>
+          <string>%version%</string>
+        </dict>
+      </dict>
+    </dict>
+
     <dict>
       <key>Processor</key>
       <string>MunkiImporter</string>
